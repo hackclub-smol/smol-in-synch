@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>In Synch — Open Graph card</title>
+    <!-- Source for assets/og.png. 1200x630. Regenerate with the command in README.md.
+         Same tokens as the site: three hues, each one a legend entry. -->
+    <style>
+        :root {
+            --paper: #ffffff;
+            --ink: #111111;
+            --ink-muted: #666666;
+            --peer-a: #ff2d00;
+            --peer-b: #0037ff;
+            --ship: #eaff00;
+            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        body {
+            width: 1200px;
+            height: 630px;
+            display: flex;
+            flex-direction: column;
+            border: 7px solid var(--ink);
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--font-body);
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 26px;
+            border-bottom: 2px solid var(--ink);
+            font: 22px/1.2 var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .wordmark {
+            padding: 24px 26px 0;
+            font-size: 188px;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.035em;
+            text-transform: uppercase;
+        }
+
+        /* the rule lives inside the type block, not around it */
+        .wordmark::after {
+            content: "";
+            display: block;
+            border-top: 7px solid var(--ink);
+            margin-top: 0.06em;
+        }
+
+        .callout {
+            padding: 22px 26px;
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.015em;
+        }
+
+        .callout b {
+            color: var(--peer-a);
+        }
+
+        .card-terms {
+            padding: 0 26px;
+            font: 24px/1.4 var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-muted);
+        }
+
+        /* two peers, dithered, converging into one ink bar — the site's motif */
+        .convergence {
+            margin-top: auto;
+            border-top: 2px solid var(--ink);
+        }
+
+        .peer-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .peer {
+            padding: 10px 26px;
+            font: 22px/1.2 var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+        }
+
+        .peer:last-child {
+            border-left: 2px solid var(--ink);
+        }
+
+        .peer[data-peer="a"] {
+            background: var(--peer-a)
+                repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0 / 6px 6px;
+        }
+
+        .peer[data-peer="b"] {
+            background: var(--peer-b)
+                repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0 / 6px 6px;
+        }
+
+        .merge-label {
+            padding: 10px 26px;
+            background: var(--ink);
+            color: var(--paper);
+            font: 22px/1.2 var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .ship-field {
+            display: flex;
+            justify-content: space-between;
+            gap: 26px;
+            padding: 16px 26px;
+            background: var(--ship);
+            color: var(--ink);
+            font: 700 26px/1.2 var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-meta">
+        <span>Form AMK-01</span>
+        <span>A YSWS from Hack Club</span>
+    </div>
+
+    <h1 class="wordmark">In Synch</h1>
+
+    <p class="callout">
+        You ship an app <b>two people can use at the same time</b>.
+    </p>
+
+    <p class="card-terms">
+        July 28 &rarr; August 24, 2026 &middot; five hours &middot; 18 or under<br>
+        Tutorial on the page &middot; #in-synch on Slack
+    </p>
+
+    <div class="convergence">
+        <div class="peer-pair">
+            <div class="peer" data-peer="a">Your edits</div>
+            <div class="peer" data-peer="b">Their edits</div>
+        </div>
+        <p class="merge-label">Both kept &mdash; that is the whole idea</p>
+    </div>
+
+    <div class="ship-field">
+        <span>Built with AutomergeKISS</span>
+        <span>We ship you a server</span>
+    </div>
+</body>
+
+</html>

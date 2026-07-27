@@ -4,66 +4,667 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUR YSWS TITLE HERE</title>
+    <title>IN SYNCH — a Hack Club YSWS</title>
+    <meta name="description"
+        content="Build something two people can use at the same time, using AutomergeKISS. A Hack Club YSWS.">
+
+    <!-- Open Graph. Paths are root-relative: Slack, Discord, Facebook and LinkedIn resolve
+         them against the page URL. Once the Vercel domain exists, swap these for absolute
+         URLs and add og:url — X/Twitter wants absolute. Card source: assets/og.html -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Hack Club YSWS">
+    <meta property="og:title" content="In Synch — ship an app two people can use at once">
+    <meta property="og:description"
+        content="A Hack Club YSWS. Build something collaborative with AutomergeKISS in five hours — tutorial on the page — and we ship you a server running it.">
+    <meta property="og:image" content="/assets/og.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt"
+        content="IN SYNCH, set large in black caps on white, over the line: you ship an app two people can use at the same time.">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="In Synch — ship an app two people can use at once">
+    <meta name="twitter:description"
+        content="A Hack Club YSWS. Build something collaborative with AutomergeKISS in five hours — tutorial on the page — and we ship you a server running it.">
+    <meta name="twitter:image" content="/assets/og.png">
+
+    <meta name="theme-color" content="#111111">
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/smol.js" defer></script>
+    <script src="assets/brief.js" defer></script>
 </head>
 
 <body>
-    <header>
-        A YSWS from Hack Club, run by YOUR NAME and Arcade!
+    <header class="program-banner">
+        <span>A YSWS from Hack Club</span>
+        <span>Run by <a href="https://arcades.agency">Arcade W.</a></span>
+        <span><a href="https://hackclub.com/slack">#in-synch</a> on Slack</span>
     </header>
 
+    <div class="masthead">
+        <div class="masthead-meta">
+            <span>Ship one thing two people use.</span>
+        </div>
+
+        <h1 class="wordmark">In Synch</h1>
+
+        <p class="callout" id="callout">
+            You ship an app <b>two people can use at the same time</b>.<br>
+            We ship you a <ruby>server<rp>(</rp>
+                <rt>ESP-32 with a nice case</rt>
+                <rp>)</rp>
+            </ruby> running your app, and stickers!
+        </p>
+
+        <dl class="masthead-terms">
+            <div>
+                <dt>Who</dt>
+                <dd>Anyone 18 or under</dd>
+            </div>
+            <div>
+                <dt>Runs</dt>
+                <dd>July 28th &rarr; August 24th 2026</dd>
+            </div>
+            <div>
+                <dt>Effort</dt>
+                <dd>5 hours, tracked</dd>
+            </div>
+            <div>
+                <dt>Library</dt>
+                <dd><a href="https://github.com/l3gacyb3ta/automergekiss">AutomergeKISS</a></dd>
+            </div>
+        </dl>
+
+        <div class="masthead-action">
+            <p>Already built it? Repo, README, five hours &mdash;</p>
+            <a class="submit-link" href="#">Submit &rarr;</a>
+        </div>
+    </div>
+
+    <ul class="legend">
+        <li><span data-hue="a"></span> your edits</li>
+        <li><span data-hue="b"></span> their edits</li>
+        <li><span data-hue="ship"></span> what Hack Club ships back</li>
+    </ul>
+
     <main>
-        <h1>YOUR YSWS TITLE HERE</h1>
-        <p id="callout">You ship X we ship Y</p>
+        <section id="what">
+            <h2 class="section-title">The whole idea</h2>
 
-        <!-- Add some fun content here! Go code your heart out! -->
+            <p class="standfirst">
+                Multiplayer is the part of software everybody assumes is hard. Accounts, a database, a
+                server, websockets, and a week of your time before two things can agree on anything!
+                <a href="https://github.com/l3gacyb3ta/automergekiss">AutomergeKISS</a> deletes
+                all of that. You get one shared object called a <b>Space</b>. You change it, and everyone
+                else sees the change. They change it, and you see it. It even works offline and catches up later.
+            </p>
 
-        <section id="submit">
-            <a id="submit-button" href="#">SUBMIT</a>
+            <figure class="convergence">
+                <div class="peer-pair">
+                    <div class="peer" data-peer="a">
+                        <p class="peer-label">Your tab &mdash; offline in a tunnel</p>
+                        <ul class="edit-log">
+                            <li>tasks.push("book the room")</li>
+                            <li>tasks[0].done = true</li>
+                        </ul>
+                    </div>
+                    <div class="peer" data-peer="b">
+                        <p class="peer-label">Their tab &mdash; across the world</p>
+                        <ul class="edit-log">
+                            <li>tasks.push("bring cables")</li>
+                            <li>tasks.push("print signs")</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="merge">
+                    <p class="merge-label">Both, once you reconnect</p>
+                    <ol>
+                        <li data-origin="a">book the room &nbsp;[done]</li>
+                        <li data-origin="b">bring cables</li>
+                        <li data-origin="b">print signs</li>
+                    </ol>
+                </div>
+                <figcaption>
+                    <p>
+                        No git merge conflicts, no lost work. That is what a well-designed CRDT buys
+                        you, and AutomergeKISS is a real Automerge document underneath, so you get
+                        it for free, without having to read a paper about it first.
+                    </p>
+                </figcaption>
+            </figure>
         </section>
 
-        <section id="FAQ">
-            <h2>FAQ</h2>
+        <section id="brief">
+            <h2 class="section-title">What counts as a ship?</h2>
+
+            <ul class="requirement-list">
+                <li>
+                    <input type="checkbox" id="req-space">
+                    <label for="req-space">It uses a Space.</label>
+                    <p>Your project opens a Space with AutomergeKISS and syncs at least one piece of
+                        real state through it. Not a chat log posted to a REST endpoint &mdash; a Space.</p>
+                </li>
+                <li>
+                    <input type="checkbox" id="req-two-people">
+                    <label for="req-two-people">Two people can use it at once, and it is obvious.</label>
+                    <p>Open two tabs, or hand the share link to a friend. Something one person does has
+                        to show up for the other without a refresh.</p>
+                </li>
+                <li>
+                    <input type="checkbox" id="req-browser">
+                    <label for="req-browser">It runs in a browser, out of the box.</label>
+                    <p>A deployed URL, or a single HTML file someone can double-click. Nobody should have
+                        to compile your project to try it.</p>
+                </li>
+                <li>
+                    <input type="checkbox" id="req-open-source">
+                    <label for="req-open-source">Open source, with a README.</label>
+                    <p>Public repo, please. The README says what it is, and includes a GIF or two screenshots of
+                        two windows in sync. The screenshots sell your project, try and make 'em good!</p>
+                </li>
+                <li>
+                    <input type="checkbox" id="req-hours">
+                    <label for="req-hours">At least 5 hours on Hackatime.</label>
+                    <p>Track your time with <a href="https://hackatime.hackclub.com">Hackatime</a> in
+                        whatever editor you like. No double-dipping into other Hack Club programs.</p>
+                </li>
+            </ul>
+
+            <p class="tally">Tick these off as you go, this browser will remember.</p>
+        </section>
+
+        <section id="tutorial">
+            <h2 class="section-title">Tutorial</h2>
+
+            <p class="standfirst">
+                This will take you from an empty folder to two browser windows editing the same list. If you would
+                rather read code than prose, jump to
+                <a href="#step-9">step 9</a>, which is the entire program in one file. Don't just submit that, I'd be
+                annoyed.
+            </p>
+
+            <ol class="tutorial-index">
+                <li><a href="#step-1">1. Get the library</a></li>
+                <li><a href="#step-2">2. Serve it over http</a></li>
+                <li><a href="#step-3">3. Open a Space</a></li>
+                <li><a href="#step-4">4. Render on change</a></li>
+                <li><a href="#step-5">5. Write with update()</a></li>
+                <li><a href="#step-6">6. Test it: two tabs</a></li>
+                <li><a href="#step-7">7. Remember the Space</a></li>
+                <li><a href="#step-8">8. Show who is online</a></li>
+                <li><a href="#step-9">9. The whole thing</a></li>
+                <li><a href="#step-10">10. Ship it</a></li>
+            </ol>
+
+            <article class="step" id="step-1">
+                <p class="step-index">1</p>
+                <h3 class="step-title">Get the library</h3>
+                <div class="step-body">
+                    <p>
+                        The fastest path has no build tools at all. Make a folder, and drop one file in
+                        it: the pre-built bundle, which has Automerge and its WASM inlined, so it is
+                        entirely self-contained.
+                    </p>
+                    <div class="listing">
+                        <p class="listing-name"><span>terminal</span><span>1 file, 1 folder</span></p>
+                        <pre>mkdir in-synch-demo &amp;&amp; cd in-synch-demo
+
+curl -O https://raw.githubusercontent.com/l3gacyb3ta/automergekiss/main/dist/automerge-kiss.bundle.js</pre>
+                    </div>
+                    <p>
+                        Want to see the finished idea first? Clone the repo and double-click
+                        <code>demo-standalone.html</code> &mdash; it is a working collaborative task board
+                        with live presence, inlined into one file, no install and no server.
+                    </p>
+                </div>
+            </article>
+
+            <article class="step" id="step-2">
+                <p class="step-index">2</p>
+                <h3 class="step-title">Serve it over http</h3>
+                <div class="step-body">
+                    <p>
+                        Browsers refuse to load module scripts from <code>file://</code>, so opening your
+                        own <code>index.html</code> by double-clicking will fail. Run any static server
+                        from the folder instead.
+                    </p>
+                    <div class="listing">
+                        <p class="listing-name"><span>terminal</span><span>pick one</span></p>
+                        <pre>npx serve .            # node
+python3 -m http.server # python</pre>
+                    </div>
+                    <div class="notice">
+                        <p>
+                            <b>Note &mdash;</b> The <code>demo-standalone.html</code> in the repo dodges
+                            this by inlining every script into the HTML itself. Worth doing at the end,
+                            when you want your project to be one double-clickable file.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="step" id="step-3">
+                <p class="step-index">3</p>
+                <h3 class="step-title">Open a Space</h3>
+                <div class="step-body">
+                    <p>
+                        One function, one await. If there is a Space code in the page URL you
+                        <b>join</b> that Space; otherwise a <b>new</b> one is created from your
+                        <code>starter</code> data.
+                    </p>
+                    <div class="listing">
+                        <p class="listing-name"><span>index.html</span><span>type="module"</span></p>
+                        <pre>&lt;script type="module"&gt;
+  import { openSpace } from "./automerge-kiss.bundle.js";
+
+  const space = await openSpace({ starter: { items: [] } });
+
+  console.log(space.data);      // { items: [] }
+  console.log(space.shareUrl);  // send this to a friend
+&lt;/script&gt;</pre>
+                    </div>
+                    <p>
+                        <code>space.data</code> is the current value &mdash; read it whenever you like.
+                        <code>space.shareUrl</code> is a link straight to this Space;
+                        <code>space.code</code> is the bare code (it looks like
+                        <code>automerge:4kP...</code>) if you would rather share that.
+                    </p>
+                </div>
+            </article>
+
+            <article class="step" id="step-4">
+                <p class="step-index">4</p>
+                <h3 class="step-title">Render on change</h3>
+                <div class="step-body">
+                    <p>
+                        <code>onChange</code> fires whenever the data changes &mdash; from you or from
+                        anyone else &mdash; and it also fires once immediately. That means one function
+                        can be your entire render path: you never write separate code for "draw the
+                        first time" and "draw again."
+                    </p>
+                    <div class="listing">
+                        <p class="listing-name"><span>index.html</span><span>the render loop</span></p>
+                        <pre>const list = document.getElementById("items");
+
+space.onChange((data) =&gt; {
+  list.replaceChildren(...data.items.map((item) =&gt; {
+    const li = document.createElement("li");
+    li.textContent = item.text;
+    return li;
+  }));
+});</pre>
+                    </div>
+                    <p>
+                        It returns an unsubscribe function, so <code>const stop = space.onChange(...)</code>
+                        then <code>stop()</code> if you ever need to detach.
+                    </p>
+                </div>
+            </article>
+
+            <article class="step" id="step-5">
+                <p class="step-index">5</p>
+                <h3 class="step-title">Write with update()</h3>
+                <div class="step-body">
+                    <p>
+                        Never assign to <code>space.data</code> directly &mdash; that change would be
+                        invisible to everyone else. Pass a function to <code>update()</code> and mutate
+                        the draft however you like. Saving and syncing happen for you.
+                    </p>
+                    <div class="listing">
+                        <p class="listing-name"><span>index.html</span><span>writes</span></p>
+                        <pre>space.update((data) =&gt; {
+  data.items.push({ text: "buy snacks", done: false });
+  data.items[0].done = true;
+});</pre>
+                    </div>
+                    <p>
+                        Push, splice, reassign a field, nest objects &mdash; ordinary JavaScript. Your
+                        <code>onChange</code> handler runs straight afterwards, so the screen updates
+                        without you calling render yourself.
+                    </p>
+                </div>
+            </article>
+
+            <article class="step" id="step-6">
+                <p class="step-index">6</p>
+                <h3 class="step-title">Test it: two tabs</h3>
+                <div class="step-body">
+                    <p>
+                        This is the moment the project becomes real. Open your page, copy the
+                        <code>shareUrl</code> it printed, paste it into a second tab. Type in one. Watch
+                        the other. Then close one tab, add three things, and reopen it.
+                    </p>
+                    <figure class="topology">
+                        <svg viewBox="0 0 640 300" role="img"
+                            aria-label="Your tab talks to your other tabs over BroadcastChannel, and to their device through a public WebSocket relay. Every tab keeps its own copy in IndexedDB.">
+                            <defs>
+                                <pattern id="relay-hatch" width="8" height="8" patternUnits="userSpaceOnUse"
+                                    patternTransform="rotate(45)">
+                                    <line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-width="1"
+                                        opacity="0.35" />
+                                </pattern>
+                            </defs>
+                            <g fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="12" y="26" width="160" height="56" stroke="#ff2d00" stroke-width="3" />
+                                <rect x="12" y="152" width="160" height="56" stroke="#ff2d00" stroke-width="3" />
+                                <rect x="245" y="90" width="170" height="56" />
+                                <rect x="450" y="26" width="178" height="56" stroke="#0037ff" stroke-width="3" />
+                                <rect x="12" y="236" width="616" height="52" stroke-dasharray="4 4" />
+                                <polyline points="172,54 210,54 210,118 245,118" />
+                                <polyline points="172,180 210,180 210,118" />
+                                <polyline points="415,118 539,118 539,82" />
+                                <line x1="92" y1="82" x2="92" y2="152" stroke-dasharray="4 4" />
+                            </g>
+                            <rect x="246" y="91" width="168" height="54" fill="url(#relay-hatch)" stroke="none" />
+                            <g fill="currentColor"
+                                font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">
+                                <text x="24" y="50">YOUR TAB</text>
+                                <text x="24" y="70" fill="#ff2d00">space.update()</text>
+                                <text x="24" y="176">YOUR OTHER TAB</text>
+                                <text x="24" y="196" fill="#ff2d00">same device</text>
+                                <text x="100" y="110">Broadcast</text>
+                                <text x="100" y="128">Channel</text>
+                                <text x="258" y="114">PUBLIC RELAY</text>
+                                <text x="258" y="134">hackclub-orchard</text>
+                                <text x="424" y="104">WebSocket</text>
+                                <text x="462" y="50" fill="#0037ff">THEIR DEVICE</text>
+                                <text x="462" y="70" fill="#0037ff">the internet</text>
+                                <text x="24" y="260">EVERY TAB KEEPS ITS OWN COPY IN INDEXEDDB.</text>
+                                <text x="24" y="280">Go offline, come back, try it out!</text>
+                            </g>
+                        </svg>
+                        <figcaption>
+                            Two tabs on one machine sync over BroadcastChannel, instantly, with no
+                            internet at all. Crossing devices goes through the relay.
+                        </figcaption>
+                    </figure>
+                    <div class="notice">
+                        <p>
+                            <b>Careful &mdash;</b> The default server
+                            is hosted by HQ, and is a public sandbox for learning. It is
+                            not private and it makes no promises. Do not put anything real in it. If you
+                            outgrow it, pass <code>server: "wss://your.server"</code> and you won't depend on us.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="step" id="step-7">
+                <p class="step-index">7</p>
+                <h3 class="step-title">Remember the Space</h3>
+                <div class="step-body">
+                    <p>
+                        Two different things are easy to confuse. A Space's <b>contents</b> are always
+                        saved in the browser, with no setup. But <b>which Space to reopen</b> is your
+                        choice: by default the code rides in the URL, so revisiting the same link
+                        rejoins &mdash; and someone who opens the bare page gets a fresh empty Space.
+                        Pass <code>remember</code> to fix that.
+                    </p>
+                    <div class="listing">
+                        <p class="listing-name"><span>index.html</span><span>persistence</span></p>
+                        <pre>const space = await openSpace({
+  starter: { items: [] },
+  remember: "in-synch-demo",   // or `true` for a default slot
+});</pre>
+                    </div>
+                    <p>Then a "start over" button forgets the slot and drops the code from the URL:</p>
+                    <div class="listing">
+                        <p class="listing-name"><span>index.html</span><span>new board</span></p>
+                        <pre>import { forgetSpace } from "./automerge-kiss.bundle.js";
+
+forgetSpace("in-synch-demo");
+location.href = location.pathname;</pre>
+                    </div>
+                    <p>
+                        Use a different name per app so their memories stay separate. The other options
+                        worth knowing: <code>code</code> to join a specific Space,
+                        <code>localOnly: true</code> for this-device-only, <code>useUrlHash: false</code>
+                        to keep the code out of the URL, and <code>joinTimeout</code> (8000ms by default)
+                        for how long to wait before showing a friendly error.
+                    </p>
+                </div>
+            </article>
+
+            <article class="step" id="step-8">
+                <p class="step-index">8</p>
+                <h3 class="step-title">Show who is online</h3>
+                <div class="step-body">
+                    <p>
+                        Presence is the cheapest way to make a project feel alive: names, colours,
+                        cursors, "Alex is typing." It is <b>not saved</b> &mdash; it only pings the
+                        people currently connected, which is exactly what you want for something that
+                        stops being true the moment someone closes the tab.
+                    </p>
+                    <div class="listing">
+                        <p class="listing-name"><span>index.html</span><span>presence</span></p>
+                        <pre>space.setPresence({ name: "Alex", color: "#ff2d00" });
+
+space.onPeers((peers) =&gt; {
+  // peers = [{ id, presence: { name, color } }, ...]
+  document.getElementById("who").textContent =
+    peers.map((p) =&gt; p.presence.name).join(", ");
+});</pre>
+                    </div>
+                    <p>
+                        Call <code>setPresence</code> again any time the value changes &mdash; on
+                        mousemove for live cursors, on keypress for a typing indicator. And call
+                        <code>space.leave()</code> when you are finished, to drop the connection and
+                        clear its timers.
+                    </p>
+                </div>
+            </article>
+
+            <article class="step" id="step-9">
+                <p class="step-index">9</p>
+                <h3 class="step-title">The whole thing</h3>
+                <div class="step-body">
+                    <p>
+                        A complete, real-time, offline-capable, multiplayer shared list with presence.
+                        Save it as <code>index.html</code> next to the bundle, serve the folder, open the
+                        share link in a second tab. That is the ship requirement met, in 60 lines.
+                    </p>
+                    <div class="listing">
+                        <p class="listing-name"><span>index.html</span><span>complete</span></p>
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;shared list&lt;/title&gt;
+
+&lt;p id="who"&gt;&lt;/p&gt;
+&lt;form id="add"&gt;
+  &lt;input id="text" placeholder="add an item" autocomplete="off"&gt;
+  &lt;button&gt;add&lt;/button&gt;
+&lt;/form&gt;
+&lt;ul id="items"&gt;&lt;/ul&gt;
+&lt;p&gt;share: &lt;a id="share"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;script type="module"&gt;
+  import { openSpace } from "./automerge-kiss.bundle.js";
+
+  const space = await openSpace({
+    starter: { items: [] },
+    remember: "shared-list",
+  });
+
+  const share = document.getElementById("share");
+  share.href = space.shareUrl;
+  share.textContent = space.shareUrl;
+
+  // one render path — used for the first paint and every update after
+  space.onChange((data) =&gt; {
+    document.getElementById("items").replaceChildren(
+      ...data.items.map((item, i) =&gt; {
+        const li = document.createElement("li");
+        const box = document.createElement("input");
+        box.type = "checkbox";
+        box.checked = item.done;
+        box.onchange = () =&gt; space.update((d) =&gt; {
+          d.items[i].done = box.checked;
+        });
+        li.append(box, document.createTextNode(" " + item.text));
+        return li;
+      })
+    );
+  });
+
+  document.getElementById("add").onsubmit = (event) =&gt; {
+    event.preventDefault();
+    const input = document.getElementById("text");
+    const text = input.value.trim();
+    if (!text) return;
+    space.update((d) =&gt; { d.items.push({ text, done: false }); });
+    input.value = "";
+  };
+
+  // presence: not saved, just who is here right now
+  const me = { name: "guest-" + Math.floor(Math.random() * 999) };
+  space.setPresence(me);
+  space.onPeers((peers) =&gt; {
+    const names = [me, ...peers.map((p) =&gt; p.presence)]
+      .map((p) =&gt; (p &amp;&amp; p.name) || "anon");
+    document.getElementById("who").textContent =
+      names.length + " here: " + names.join(", ");
+  });
+&lt;/script&gt;</pre>
+                    </div>
+                    <p>
+                        Now break it on purpose, because that is the interesting part. Turn off your
+                        wifi, add three items, turn it back on. Nothing is lost, and neither is anything
+                        the other tab did while you were gone.
+                    </p>
+                </div>
+            </article>
+
+            <article class="step" id="step-10">
+                <p class="step-index">10</p>
+                <h3 class="step-title">Ship it</h3>
+                <div class="step-body">
+                    <p>
+                        Make it yours &mdash; the list is scaffolding, not the project. Then push the
+                        repo, write the README, record the GIF/pictures of two windows moving together, and
+                        submit. If you would rather use a bundler than a copied file, the library is a
+                        single TypeScript file: <code>npm create vite@latest</code>,
+                        <code>npm install @automerge/vanillajs</code>, drop
+                        <code>src/automerge-kiss.ts</code> in, import from it.
+                    </p>
+                    <p>
+                        And when the simple API runs out: it re-exports <code>Repo</code>, the adapters,
+                        and <code>isValidAutomergeUrl</code>, so you can drop into full
+                        <a href="https://automerge.org/docs/hello/">Automerge</a> &mdash; lists, rich
+                        text, counters &mdash; without rewriting what already works.
+                    </p>
+                </div>
+            </article>
+        </section>
+
+        <section id="ideas">
+            <h2 class="section-title">If you are stuck for an idea</h2>
+            <ul class="idea-list">
+                <li class="idea"><b>Shared playlist</b><span>A party queue your friends add to from their
+                        own phones. Just a link!</span></li>
+                <li class="idea"><b>Two-player anything</b><span>Chess, battleship, tic-tac-toe. The board
+                        is the Space; presence tells you they are still there.</span></li>
+                <li class="idea"><b>Live whiteboard</b><span>Strokes in the Space, cursors in presence.
+                        Offline sketching means that it merges automagically when you reconnect.</span></li>
+                <li class="idea"><b>Club sign-up sheet</b><span>One link on the projector, thirty people
+                        filling rows at once, nobody needs an account.</span></li>
+                <li class="idea"><b>Group grocery list</b><span>The classic. Useful, needed
+                        offline, done in a weekend.</span></li>
+                <li class="idea"><b>Collaborative pixel canvas</b><span>An r/place for your personal Slack channel.
+                        A grid of colours is just an array.</span></li>
+                <li class="idea"><b>Shared timer</b><span>A hackathon countdown everyone can see and any
+                        organiser can extend.</span></li>
+                <li class="idea"><b>Dumb little inbox</b><span>Anonymous question submission during a talk, answered
+                        live, no need for a backend.</span></li>
+            </ul>
+        </section>
+
+        <section class="ship-field" id="submit">
+            <h2>Shipped something?</h2>
+            <p>
+                Public repo, a README with the sync GIF, 5 hours on Hackatime, and a link two people can
+                open at once. Then claim your server by submitting!
+            </p>
+            <a class="submit-link" id="submit-button" href="#">Submit</a>
+            <p class="ship-note">Reviewed by a human, usually within a week</p>
+        </section>
+
+        <section class="faq" id="FAQ">
+            <h2 class="section-title">FAQ<small>Ask the rest in #in-synch</small></h2>
+
             <details>
                 <summary>Can I participate?</summary>
                 <p>Anyone 18 or younger can participate!</p>
             </details>
             <details>
+                <summary>Do I have to use AutomergeKISS?</summary>
+                <p>Yes &mdash; that is the point of this one. Your project has to open a Space and sync
+                    real state through it. You are welcome to eject into full Automerge on top of that;
+                    the library re-exports everything you need.</p>
+            </details>
+            <details>
+                <summary>Do I need to understand CRDTs?</summary>
+                <p>No. That is the entire reason this library exists. If you finish and find yourself
+                    curious about <i>why</i> it never loses an edit, the
+                    <a href="https://automerge.org/docs/hello/">Automerge docs</a> are excellent.
+                </p>
+            </details>
+            <details>
+                <summary>Do I need a server?</summary>
+                <p>No. Syncing uses a public sandbox server by default, and two tabs on one machine sync
+                    with no internet at all. If you want your own, set <code>server</code> to your
+                    WebSocket URL &mdash; nothing else in your code changes.</p>
+            </details>
+            <details>
                 <summary>What are the project requirements?</summary>
                 <p>Your project should:</p>
                 <ul>
-                    <li>WHAT DO YOU SHIP?</li>
+                    <li>sync real state through an AutomergeKISS Space</li>
+                    <li>be usable by two people at the same time</li>
                     <li>be open source</li>
-                    <li>have a README.md</li>
+                    <li>have a README.md, with a GIF or screenshots of two windows in sync</li>
                     <li>work out of the box (no compiling locally!)</li>
                 </ul>
             </details>
             <details>
+                <summary>Does a two-player game count?</summary>
+                <p>Absolutely, as long as the game state lives in a Space and both players see each
+                    other's moves. Turn-based is fine.</p>
+            </details>
+            <details>
                 <summary>How do I track time?</summary>
-                <p>Use <a href="https://hackatime.hackclub.com">Hackatime</a> with any text
-                    editor of your choice.</p>
+                <p>Use <a href="https://hackatime.hackclub.com">Hackatime</a> with any text editor of
+                    your choice.</p>
             </details>
             <details>
                 <summary>Can I submit my project to another Hack Club program?</summary>
                 <p>Double-dipping isn't allowed, sorry!</p>
             </details>
             <details>
-                <summary>When does TITLE end?</summary>
-                <p>TITLE runs from START DATE, to END DATE.</p>
+                <summary>When does In Synch end?</summary>
+                <p>In Synch runs from July 28th to
+                    August 24th 2026.</p>
             </details>
             <details>
                 <summary>I have more questions!</summary>
-                <p>Ask a question in <code>#ADD-CHANNEL-NAME</code>, or send a DM to either @YOUR-USERNAME or @Arcade W.
-                    on Hack Club Slack.</p>
+                <p>Ask a question in <code>#in-synch</code>, or send a DM to either
+                    @Arcade W. on Hack Club Slack.</p>
             </details>
         </section>
     </main>
+
     <footer>
-        <nav><a href="https://hackclub.com">Hack Club</a> -- <a href="https://hackclub.com/slack">Slack</a> -- <a
-                href="https://hackclub.com/clubs/">Clubs</a> -- <a
-                href="https://hackathons.hackclub.com/">Hackathons</a></nav>
+        <nav><a href="https://hackclub.com">Hack Club</a> &middot; <a href="https://hackclub.com/slack">Slack</a>
+            &middot; <a href="https://hackclub.com/clubs/">Clubs</a> &middot;
+            <a href="https://hackathons.hackclub.com/">Hackathons</a> &middot;
+            <a href="https://github.com/l3gacyb3ta/automergekiss">AutomergeKISS</a>
+        </nav>
+        <p class="edition">
+            Form AMK-01 &middot; In Synch &middot; rev 2026-07-27 &middot; set in the reader's own sans
+            &middot; three hues, each one a legend entry &middot; built against automergekiss@main
+            &middot; previous edition is obsolete
+        </p>
     </footer>
 </body>
 
